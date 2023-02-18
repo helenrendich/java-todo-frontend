@@ -7,11 +7,11 @@ import Header from "./component/Header";
 import {ToDo} from "./model/ToDo";
 import axios from "axios";
 import ToDoBoard from "./component/ToDoBoard";
+import AddToDo from "./component/AddToDo";
 
 function App() {
 
-    const [todos, setToDos] = useState<ToDo[]>([{description: "test", id: "123", status: "open"}]);
-
+    const [todos, setToDos] = useState<ToDo[]>([{description: "test", id: "123", status: "OPEN"}]);
     const[text, setText] =useState<string>("");
 
     function getToDos(){
@@ -24,14 +24,26 @@ function App() {
             })
     }
 
+    function addToDo(newToDo: ToDo) {
+        setToDos(prevState => [...prevState, newToDo])
+    }
+
+
     useEffect(() =>{getToDos()}, [])
 
   return (
       <div className="App">
 
-            <Header/>
+          <Header/>
 
+          <div className={"ToDoBoards"}>
             <ToDoBoard todos={todos} title={"To Do"}/>
+            <ToDoBoard todos={todos} title={"Doing"}/>
+            <ToDoBoard todos={todos} title={"Done"}/>
+          </div>
+
+          <AddToDo onAddToDo={addToDo}/>
+
 
 
       </div>

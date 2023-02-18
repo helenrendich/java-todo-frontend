@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.ToDoBoards{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
