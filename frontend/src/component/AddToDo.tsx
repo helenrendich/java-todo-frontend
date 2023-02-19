@@ -18,7 +18,7 @@ export default function AddToDo(props: Props) {
         props.onAddToDo({id: "123", description, status: "OPEN"})
     }
 
-    return <div className='add-todo'>
+    return <div className="Add-Todo">
         <label>New To Do: </label>
         <input value={description} onChange={onDescriptionChange} />
         <button onClick={onToDoSave}>Add</button>

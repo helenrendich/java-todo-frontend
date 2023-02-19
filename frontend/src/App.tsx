@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
+import './Add-Todo.css'
 import './App.css';
 import './ToDoCard.css'
 import './ToDoBoard.css'
@@ -11,7 +12,7 @@ import AddToDo from "./component/AddToDo";
 
 function App() {
 
-    const [todos, setToDos] = useState<ToDo[]>([{description: "test", id: "123", status: "OPEN"}]);
+    const [todos, setToDos] = useState<ToDo[]>([]);
     const[text, setText] =useState<string>("");
 
     function getToDos(){

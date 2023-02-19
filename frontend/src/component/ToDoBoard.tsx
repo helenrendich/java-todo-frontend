@@ -10,7 +10,13 @@ type ToDoBoardProps = {
 
 export default function ToDoBoard(props: ToDoBoardProps){
 
-    const toDoCards = props.todos.map(todo =>
+    const boardStatus = props.title === "To Do"? "OPEN":
+        props.title === "Doing"? "IN_PROGRESS":
+            props.title === "Done"? "DONE": {throw: new Error('Exception')}
+
+    const filteredCards = props.todos.filter(todo => {return todo.status === boardStatus})
+
+    const toDoCards = filteredCards.map(todo =>
         <ToDoCard description={todo.description} id={todo.id} status={todo.status}/>);
 
 
