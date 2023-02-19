@@ -25,8 +25,22 @@ function App() {
             })
     }
 
+    function postToDos(todo: ToDo){
+        axios.post("/api/todo", {
+            "description": todo.description,
+            "id": todo.id,
+            "status": todo.status
+        })
+            .then(function (response) {
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     function addToDo(newToDo: ToDo) {
         setToDos(prevState => [...prevState, newToDo])
+        postToDos(newToDo)
     }
 
 

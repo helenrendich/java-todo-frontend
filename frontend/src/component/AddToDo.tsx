@@ -15,7 +15,7 @@ export default function AddToDo(props: Props) {
     }
 
     function onToDoSave() {
-        props.onAddToDo({id: "123", description, status: "OPEN"})
+        props.onAddToDo({id: "", description, status: "OPEN"})
     }
 
     return <div className="Add-Todo">
